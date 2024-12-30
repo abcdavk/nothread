@@ -10,12 +10,13 @@ import {
 import { FaDiscord } from "react-icons/fa";
 import { TbBrandFiverr } from "react-icons/tb";
 import { socialLinks } from "../config";
+import { IconType } from "react-icons";
 
 const YEAR = new Date().getFullYear();
 
 interface ISocialLink {
   href: string
-  icon: any
+  icon: IconType
 }
 
 function SocialLink({ href, icon: Icon }: ISocialLink) {

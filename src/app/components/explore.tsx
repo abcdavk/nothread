@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { fetchDatabase } from "../lib/database";
-
-export interface IDatabase {
-  id: number
-  name: string
-  content: string
-  date: string
-}
+import { IDatabase } from "../lib/database";
 
 const loadingText = [
   "Taking every word...",
@@ -58,7 +52,7 @@ function generateButtonPage(numberOfPage: number, explorePage: number, setExplor
 }
 
 export function Explore() {
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<IDatabase[]>([]);
   const [numberOfPage, setNumberOfPage] = useState<number>(0);
   const [explorePage, setExplorePage] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);

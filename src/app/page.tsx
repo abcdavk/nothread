@@ -1,13 +1,11 @@
 "use client"
-
-import Image from "next/image";
 import { Explore, Footer, Navbar, NewPost } from "./components";
 import { useState } from "react";
 
-const pages= [
-  <NewPost />,
-  <Explore />
-]
+const pages = [
+  <NewPost key="newPost" />,
+  <Explore key="explore" /> 
+];
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,6 +13,7 @@ export default function Home() {
     <div className="px-5">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage}/>
       {pages[currentPage]}
+      <Footer />
     </div>
   );
 }

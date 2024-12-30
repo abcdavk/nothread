@@ -1,9 +1,13 @@
 // Import the necessary Firebase SDKs
 import { getDatabase, ref, onValue } from "firebase/database";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-require('dotenv').config();
 
+export interface IDatabase {
+  id: number
+  name: string
+  content: string
+  date: string
+}
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -19,7 +23,6 @@ const firebaseConfig = {
 
 // Initialize Firebase only once
 const app = initializeApp(firebaseConfig);
-getAnalytics(app); // Optional: Use if analytics is needed
 
 const db = getDatabase(app);
 
@@ -28,9 +31,9 @@ const db = getDatabase(app);
  * @param path The database path to fetch data from (e.g., "posts/").
  * @returns A Promise resolving to the data at the specified path.
  */
-export async function fetchDatabase(path: string): Promise<any> {
+export async function fetchDatabase(path: string): Promise<IDatabase[]> {
   return new Promise((resolve, reject) => {
-    const dataRef = ref(db, 'posts/');
+    const dataRef = ref(db, path);
     onValue(
       dataRef,
       (snapshot) => {
@@ -39,7 +42,7 @@ export async function fetchDatabase(path: string): Promise<any> {
           resolve(data);
           console.warn(data[0].content)
         } else {
-          resolve(null); 
+          resolve([]); 
         }
       },
       (error) => {
