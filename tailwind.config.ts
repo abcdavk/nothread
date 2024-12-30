@@ -1,3 +1,4 @@
+import { Noto_Sans } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,6 +13,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        Noto_Sans: ["Noto Sans", "sans-serif"]
+      }
     },
   },
   plugins: [],

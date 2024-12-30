@@ -1,15 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Gloria+Hallelujah&family=Outfit:wght@100..900&display=swap');@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgb(9 9 11 / var(--tw-bg-opacity, 1));
+  --foreground: #ededed;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: rgb(9 9 11 / var(--tw-bg-opacity, 1));
     --foreground: #ededed;
   }
 }
@@ -17,5 +15,26 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Outfit",'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.font-informal {
+  font-family: "Gloria Hallelujah", sans-serif;
+  font-size: large;
+}
+
+.font-formal {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+}
+
+.font-strong {
+  font-family: "Bebas Neue", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: crimson;
 }
