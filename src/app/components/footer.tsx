@@ -5,17 +5,20 @@ import {
   FaXTwitter,
   FaGithub,
   FaInstagram,
-  FaRss,
-  FaLinkedinIn,
 } from "react-icons/fa6";
 
 import { FaDiscord } from "react-icons/fa";
-import { TbMailFilled, TbBrandFiverr } from "react-icons/tb";
-import { metaData, socialLinks } from "../config";
+import { TbBrandFiverr } from "react-icons/tb";
+import { socialLinks } from "../config";
 
 const YEAR = new Date().getFullYear();
 
-function SocialLink({ href, icon: Icon }) {
+interface ISocialLink {
+  href: string
+  icon: any
+}
+
+function SocialLink({ href, icon: Icon }: ISocialLink) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white">
       <Icon />

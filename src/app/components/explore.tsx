@@ -3,7 +3,12 @@
 import { useState, useEffect } from "react";
 import { fetchDatabase } from "../lib/database";
 
-
+export interface IDatabase {
+  id: number
+  name: string
+  content: string
+  date: string
+}
 
 const loadingText = [
   "Taking every word...",
@@ -97,7 +102,7 @@ export function Explore() {
         {generateButtonPage(numberOfPage, explorePage, setExplorePage)}
       </div>
       <div className="bg-zinc-900 rounded-xl">
-        {post.map((p) => (
+        {post.map((p: IDatabase) => (
           <div className="group px-6 font-informal text-white/40 hover:text-white/100 p-2 mb-2" key={p.id}>
             <h1 className="text-lg">
               {p.content.split("\\n").map((line, index) => (
