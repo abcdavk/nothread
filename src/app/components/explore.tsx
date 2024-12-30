@@ -111,7 +111,7 @@ export function Explore() {
           }`}
         >
           <span
-            className={`font-formal flex justify-center items-center bg-transparent ${
+            className={`flex justify-center items-center bg-transparent ${
               expandedId === p.id ? "rounded-xl" : ""  
             } group-hover:bg-white group-hover:text-zinc-950 outline outline-1 outline-white/10 group-hover:outline-transparent mt-4 transition-all duration-300`}
           >
