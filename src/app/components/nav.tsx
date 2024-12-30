@@ -6,7 +6,7 @@ const headerText = [
   "Not a Threads, what u expect?",
   "Stop clicking!",
   "Stop it!",
-  <a href="https://github.com/abcdavk" target="_blank" key="Header Text Link">Ok you won, here is the source code</a>
+  <a href="https://github.com/abcdavk/nothread" target="_blank" key="Header Text Link">Ok you won, here is the source code</a>
 ]
 
 export function Navbar({ currentPage, setCurrentPage }: { currentPage: number; setCurrentPage: (page: number) => void }) {
