@@ -3,49 +3,49 @@ import { getDatabase, ref, set } from "firebase/database";
 import { useState } from "react";
 import { fetchDatabase } from "../lib/database";
 
-const motivations = [
-  <h1 className="text-2xl font-semibold mb-4 text-gray-100" key="motivation-1">
-    EVERY <span className="font-formal">word</span> is an{" "}
-    <span className="font-informal text-xl">Art</span>
-  </h1>,
-  <h1 className="text-xl italic text-indigo-300" key="motivation-2">
-    <span className="font-bold text-white">&quot;Write&quot;</span> your dreams,{" "}
-    <span className="underline decoration-dotted">they matter!</span>
-  </h1>,
-  <p className="text-lg text-green-400" key="motivation-3">
-    <span className="uppercase tracking-widest">ideas</span> are{" "}
-    <span className="font-semibold text-yellow-300">timeless!</span>
-  </p>,
-  <h2 className="text-3xl font-light text-pink-500" key="motivation-4">
-    <span className="uppercase font-bold text-pink-200">Inspire</span> the world
-    with your <span className="italic">voice.</span>
-  </h2>,
-  <p className="text-sm text-blue-400" key="motivation-5">
-    Words have the <span className="font-mono text-blue-300">power</span> to{" "}
-    <span className="underline text-blue-500">heal</span>.
-  </p>,
-  <h3 className="text-lg text-yellow-300" key="motivation-6">
-    <span className="font-serif">Share</span> your{" "}
-    <span className="uppercase tracking-wide">story</span>, it’s unique.
-  </h3>,
-  <h4 className="text-xl text-red-400 font-extrabold" key="motivation-7">
-    <span className="italic">Your words</span> are{" "}
-    <span className="underline decoration-wavy">unstoppable!</span>
-  </h4>,
-  <p className="text-base text-teal-500" key="motivation-8">
-    Don’t <span className="line-through">fear</span>{" "}
-    <span className="font-bold">expression</span>.
-  </p>,
-  <h2 className="text-2xl text-orange-400" key="motivation-9">
-    <span className="uppercase font-black tracking-tight">Dream</span> big,
-    <span className="text-white">write</span> bigger.
-  </h2>,
-  <p className="text-lg text-gray-500" key="motivation-10">
-    A <span className="font-medium text-gray-200">simple</span>{" "}
-    <span className="italic">sentence</span> can{" "}
-    <span className="font-extrabold text-gray-100">change lives</span>.
-  </p>,
-];
+// const motivations = [
+//   <h1 className="text-2xl font-semibold mb-4 text-gray-100" key="motivation-1">
+//     EVERY <span className="font-formal">word</span> is an{" "}
+//     <span className="font-informal text-xl">Art</span>
+//   </h1>,
+//   <h1 className="text-xl italic text-indigo-300" key="motivation-2">
+//     <span className="font-bold text-white">&quot;Write&quot;</span> your dreams,{" "}
+//     <span className="underline decoration-dotted">they matter!</span>
+//   </h1>,
+//   <p className="text-lg text-green-400" key="motivation-3">
+//     <span className="uppercase tracking-widest">ideas</span> are{" "}
+//     <span className="font-semibold text-yellow-300">timeless!</span>
+//   </p>,
+//   <h2 className="text-3xl font-light text-pink-500" key="motivation-4">
+//     <span className="uppercase font-bold text-pink-200">Inspire</span> the world
+//     with your <span className="italic">voice.</span>
+//   </h2>,
+//   <p className="text-sm text-blue-400" key="motivation-5">
+//     Words have the <span className="font-mono text-blue-300">power</span> to{" "}
+//     <span className="underline text-blue-500">heal</span>.
+//   </p>,
+//   <h3 className="text-lg text-yellow-300" key="motivation-6">
+//     <span className="font-serif">Share</span> your{" "}
+//     <span className="uppercase tracking-wide">story</span>, it’s unique.
+//   </h3>,
+//   <h4 className="text-xl text-red-400 font-extrabold" key="motivation-7">
+//     <span className="italic">Your words</span> are{" "}
+//     <span className="underline decoration-wavy">unstoppable!</span>
+//   </h4>,
+//   <p className="text-base text-teal-500" key="motivation-8">
+//     Don’t <span className="line-through">fear</span>{" "}
+//     <span className="font-bold">expression</span>.
+//   </p>,
+//   <h2 className="text-2xl text-orange-400" key="motivation-9">
+//     <span className="uppercase font-black tracking-tight">Dream</span> big,
+//     <span className="text-white">write</span> bigger.
+//   </h2>,
+//   <p className="text-lg text-gray-500" key="motivation-10">
+//     A <span className="font-medium text-gray-200">simple</span>{" "}
+//     <span className="italic">sentence</span> can{" "}
+//     <span className="font-extrabold text-gray-100">change lives</span>.
+//   </p>,
+// ];
 
 function writeNewPost(name: string, content: string, id: number) {
   const db = getDatabase();
@@ -88,7 +88,7 @@ export function NewPost() {
   };
 
 
-  const randomMotNum: number = Math.floor(Math.random() * motivations.length);
+  // const randomMotNum: number = Math.floor(Math.random() * motivations.length);
 
   return (
     <section className="bg-zinc-950 flex flex-col">
