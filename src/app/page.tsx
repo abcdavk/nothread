@@ -8,7 +8,7 @@ const pages = [
 ];
 
 export default function Home() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   return (
     <div className="px-5">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage}/>

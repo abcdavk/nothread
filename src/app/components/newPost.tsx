@@ -47,8 +47,6 @@ const motivations = [
   </p>,
 ];
 
-
-
 function writeNewPost(name: string, content: string, id: number) {
   const db = getDatabase();
 
@@ -88,14 +86,16 @@ export function NewPost() {
     setPostName("");
     setPostContent("");
   };
-  
+
+
+  const randomMotNum: number = Math.floor(Math.random() * motivations.length);
 
   return (
     <section className="bg-zinc-950 flex flex-col">
-      {motivations[Math.floor(Math.random() * motivations.length)]}
+      {/* {motivations[randomMotNum]} */}
 
       <input
-        className="mb-2 font-informal p-4 flex-grow rounded-xl bg-zinc-950 text-gray-100 placeholder-gray-500 border-transparent outline outline-gray-500 outline-1 resize-none transition duration-300"
+        className="mb-2 font-informal p-4 flex-grow bg-zinc-950 text-gray-100 placeholder-gray-500 border-transparent outline outline-none outline-1 resize-none transition duration-300"
         placeholder="Add a nickname here if you want"
         value={postName}
         onChange={(e) => setPostName(e.target.value)}
@@ -103,7 +103,7 @@ export function NewPost() {
       </input>
 
       <textarea
-        className="font-informal h-screen p-4 flex-grow rounded-xl bg-zinc-950 text-gray-100 placeholder-gray-500 border-gray-500 outline-none focus:outline-none resize-none transition duration-300"
+        className="font-informal h-screen p-4 flex-grow bg-zinc-950 text-gray-100 placeholder-gray-500 border-transparent outline-none focus:outline-none resize-none transition duration-300"
         placeholder="Type something and something will happen, try it!"
         value={postContent}
         onChange={(e) => setPostContent(e.target.value)}

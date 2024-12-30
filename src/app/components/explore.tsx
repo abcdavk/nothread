@@ -56,6 +56,12 @@ export function Explore() {
   const [numberOfPage, setNumberOfPage] = useState<number>(0);
   const [explorePage, setExplorePage] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const toggleExpand = (id: number) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -95,24 +101,45 @@ export function Explore() {
       <div>
         {generateButtonPage(numberOfPage, explorePage, setExplorePage)}
       </div>
-      <div className="bg-zinc-900 rounded-xl">
-        {post.map((p: IDatabase) => (
-          <div className="group px-6 font-informal text-white/40 hover:text-white/100 p-2 mb-2" key={p.id}>
-            <h1 className="text-lg">
+      <div className="bg-zinc-900 rounded-xl text-informal">
+      {post.map((p) => (
+        <button
+          key={p.id}
+          onClick={() => toggleExpand(p.id)}
+          className={`font-informal group w-full bg-transparent outline-none border-transparent px-6 pt-4 text-white/40 hover:text-white/100 transition-all duration-300 ${
+            expandedId === p.id ? "bg-zinc-800 pb-2 mt-6" : "bg-transparent"
+          }`}
+        >
+          <span
+            className={`font-formal flex justify-center items-center bg-transparent ${
+              expandedId === p.id ? "rounded-xl" : ""  
+            } group-hover:bg-white group-hover:text-zinc-950 outline outline-1 outline-white/10 group-hover:outline-transparent mt-4 transition-all duration-300`}
+          >
+            {p.id}
+          </span>
+
+          <div
+            className={`overflow-hidden transition-all duration-500 ${
+              expandedId === p.id ? "max-h-[500px] overflow-y-auto" : "max-h-[100px]"
+            }`}
+          >
+            <div className="pt-6">
+              <p className="float-left text-sm -mt-3">@{p.name}</p>
+              <p className="flex text-sm -mt-3 float-right">{p.date}</p>
+            </div>
+            <p className="justify-left">
               {p.content.split("\\n").map((line, index) => (
                 <span key={index}>
                   {line}
                   <br />
                 </span>
               ))}
-            </h1>
-            <div className="block pb-4">
-              <p className="absolute text-sm -mt-3">@{p.name}</p>
-              <p className="flex text-sm -mt-3 float-right">{p.date}</p>
-            </div>
-            <hr className="border-white/40 group-hover:border-white"/>
+            </p>
+
+            
           </div>
-        ))}
+        </button>
+      ))}
       </div>
     </div>
   );
