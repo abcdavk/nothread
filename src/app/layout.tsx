@@ -16,7 +16,7 @@ export default function RootLayout({
       <body
         className="antialiased flex flex-col items-center justify-center mx-auto mb-20 lg:mb-40 overflow-x-hidden"
       >
-        <main className="flex-auto min-w-0 px-4 max-w-[640px] w-full">
+        <main className="flex-auto min-w-0 px-4 max-w-[1080px] w-full">
           {children}
         </main>
       </body>

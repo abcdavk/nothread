@@ -29,7 +29,7 @@ function generateButtonPage(numberOfPage: number, explorePage: number, setExplor
             ? "bg-white text-black"
             : "bg-transparent text-white"} 
           hover:outline hover:outline-1 hover:outline-white 
-          transition-all duration-300 ease-in-out min-w-[40px]`} // Set minimum width
+          transition-all duration-300 ease-in-out min-w-[45px]`} // Set minimum width
       >
         <span
           className={`absolute inset-0 bg-transparent outline outline-1 outline-white/20 rounded-lg transition-all duration-300 ease-in-out 
@@ -48,7 +48,7 @@ function generateButtonPage(numberOfPage: number, explorePage: number, setExplor
       👌
     </button>
   )
-  return <div className="flex overflow-x-auto space-x-4 pb-6">{buttons}</div>;
+  return <div className="flex overflow-x-auto space-x-4 pb-6 px-1">{buttons}</div>;
 }
 
 export function Explore() {
@@ -97,50 +97,47 @@ export function Explore() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="space-y-6">
+      <div className="flex justify-center">
         {generateButtonPage(numberOfPage, explorePage, setExplorePage)}
       </div>
-      <div className="bg-zinc-900 rounded-xl text-informal">
-      {post.map((p) => (
-        <button
-          key={p.id}
-          onClick={() => toggleExpand(p.id)}
-          className={`font-informal group w-full bg-transparent outline-none border-transparent px-6 pt-4 text-white/40 hover:text-white/100 transition-all duration-300 ${
-            expandedId === p.id ? "bg-zinc-800 pb-2 mt-6" : "bg-transparent"
-          }`}
-        >
-          <span
-            className={`flex justify-center items-center bg-transparent ${
-              expandedId === p.id ? "rounded-xl" : ""  
-            } group-hover:bg-white group-hover:text-zinc-950 outline outline-1 outline-white/10 group-hover:outline-transparent mt-4 transition-all duration-300`}
-          >
-            {p.id}
-          </span>
-
+      <div className="bg-zinc-900 rounded-xl shadow-lg">
+        {post.map((p) => (
           <div
-            className={`overflow-hidden transition-all duration-500 ${
-              expandedId === p.id ? "max-h-[500px] overflow-y-auto" : "max-h-[100px]"
-            }`}
+            key={p.id}
+            className={`p-6 border-none  ${
+              expandedId === p.id ? "bg-zinc-800" : "bg-transparent"
+            } transition-colors duration-300`}
           >
-            <div className="pt-6">
-              <p className="float-left text-sm -mt-3">@{p.name}</p>
-              <p className="flex text-sm -mt-3 float-right">{p.date}</p>
-            </div>
-            <p className="justify-left">
-              {p.content.split("\\n").map((line, index) => (
-                <span key={index}>
-                  {line}
-                  <br />
-                </span>
-              ))}
-            </p>
-
-            
+            <button
+              onClick={() => toggleExpand(p.id)}
+              className="w-full text-left group border-transparent text-white/70 hover:text-white focus:outline-none transition-colors duration-300"
+            >
+              <div className="flex justify-between items-center">
+                <span className="font-medium">@{p.name}</span>
+                <span className="text-sm">{p.date}</span>
+              </div>
+              <div
+                className={`font-informal mt-4 overflow-hidden transition-[max-height] duration-500 ${
+                  expandedId === p.id ? "overflow-y-auto max-h-[500px]" : "max-h-[80px]"
+                }`}
+              >
+                <p className="whitespace-pre-wrap">{p.content}</p>
+              </div>
+            </button>
+            {expandedId === p.id && (
+              <div className="mt-4">
+                <button
+                  className="flex items-center justify-center w-full text-sm text-white/50 hover:text-white py-2 rounded-xl border-transparent outline outline-white/10 outline-1 hover:outline-white hover:rounded-md transition-all duration-300"
+                >
+                  Reply
+                </button>
+              </div>
+            )}
           </div>
-        </button>
-      ))}
+        ))}
       </div>
     </div>
+
   );
 }

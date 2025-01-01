@@ -12,11 +12,11 @@ const headerText = [
 export function Navbar({ currentPage, setCurrentPage }: { currentPage: number; setCurrentPage: (page: number) => void }) {
   const [headerTextCount,setHeaderTextCount] = useState(0);
   function setStyleByPage(pageId: number) {
-    let style = "border-none bg-zinc-950 text-white rounded-lg hover:bg-white hover:text-zinc-950 transition duration-300";
+    let style = "border-none bg-zinc-950 text-white rounded-lg hover:bg-white/70 hover:text-zinc-950 transition duration-300";
     if (currentPage !== pageId) {
       return style;
     } else {
-      style = "border-none rounded-lg hover:bg-white hover:text-zinc-950 transition duration-300";
+      style = "border-none rounded-lg bg-white text-zinc-950 transition duration-300";
       return style;
     }
   }
@@ -37,18 +37,24 @@ export function Navbar({ currentPage, setCurrentPage }: { currentPage: number; s
           </button>
         {/* </span> */}
       </div>
-      <div className="grid gap-4 grid-cols-2">
+      <div className="grid gap-4 grid-flow-row-dense grid-cols-2">
         <button
-          className={`flex justify-center items-center p-2 ${setStyleByPage(0)}`}
+          className={`py-3 px-4 rounded-lg transition-all duration-300 ${setStyleByPage(0)}`}
           onClick={() => setCurrentPage(0)}
         >
           Create New Post
         </button>
         <button
-          className={`flex justify-center items-center p-2 ${setStyleByPage(1)}`}
+          className={`py-3 px-4 rounded-lg transition-all duration-300 ${setStyleByPage(1)}`}
           onClick={() => setCurrentPage(1)}
         >
           Explore
+        </button>
+        <button
+          className={`py-3 px-4 rounded-lg transition-all duration-300 col-span-2 ${setStyleByPage(2)}`}
+          onClick={() => setCurrentPage(2)}
+        >
+          Settings
         </button>
       </div>
     </nav>

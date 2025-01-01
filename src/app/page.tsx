@@ -1,10 +1,11 @@
 "use client"
-import { Explore, Footer, Navbar, NewPost } from "./components";
+import { Explore, Footer, Navbar, NewPost, Settings } from "./components";
 import { useState } from "react";
 
 const pages = [
   <NewPost key="newPost" />,
-  <Explore key="explore" /> 
+  <Explore key="explore" />,
+  <Settings key="settings" />
 ];
 
 export default function Home() {

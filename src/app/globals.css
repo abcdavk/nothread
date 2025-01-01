@@ -15,7 +15,11 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Outfit",'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Outfit",'Lucida Sans';
+}
+
+.font-normal {
+  font-family: "Outfit", 'Lucida Sans';
 }
 
 .font-informal {
@@ -37,4 +41,11 @@ body {
 a {
   text-decoration: none;
   color: crimson;
+}
+
+button {
+  font-family: "Outfit",'Lucida Sans';
+  font-size: medium;
+  background-color: transparent;
+  color:#ededed;
 }
